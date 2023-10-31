@@ -1,0 +1,28 @@
+﻿@model List<TestProject.Models.NumberEntry>
+
+<h2>Number Entries</h2>
+
+<table class="table">
+    <tr>
+        <th>Original Number</th>
+        <th>Number * 2</th>
+        <th>(Number * 2)^2</th>
+    </tr>
+    @foreach (var entry in Model)
+    {
+        <tr>
+            <td>@entry.OriginalNumber</td>
+            <td>@(entry.OriginalNumber * 2)</td>
+            <td>@entry.SquaredNumber</td>
+        </tr>
+    }
+</table>
+
+<h3>Add a New Number Entry</h3>
+<form method="post" asp-action="Calculate">
+    <div class="form-group">
+        <label for="OriginalNumber">Enter a number:</label>
+        <input type="number" class="form-control" id="OriginalNumber" name="OriginalNumber" />
+    </div>
+    <button type="submit" class="btn btn-primary">Calculate</button>
+</form>
